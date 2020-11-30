@@ -1,0 +1,47 @@
+========
+Team MOM
+========
+
+:authors:
+   - Alistair Adcroft
+   - Robert Hallberg
+   - Matthew Harrison
+   - Marshall Ward
+   - Niki Zadeh
+
+:date: 2020 December 1
+
+
+MOM6
+====
+
+- Layered dynamics
+
+- Fortran 2003
+
+- Dependencies:
+
+   - MPI
+   - netCDF
+
+
+MOM6-remapping
+==============
+
+- Sub
+
+
+Goals
+=====
+
+- Port remapping code to GPUs
+
+- Demonstrate 
+
+- Integrate changes into MOM6 source
+  
+  - GPU as "coprocessor"
+
+Time permitting:
+
+- Explore additional components for porting
