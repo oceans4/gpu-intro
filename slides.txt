@@ -1,11 +1,6 @@
-.. role:: strike
-   :class: strike
-
-.. ------------------
-
-=====================
-Ocean's :strike:`4` 5
-=====================
+=========
+Ocean's 5
+=========
 
 :authors:
    - Alistair Adcroft
@@ -17,17 +12,23 @@ Ocean's :strike:`4` 5
 :date: 2020 December 1
 
 
-MOM6
-====
+MOM6 Ocean Model
+================
 
-- Layered dynamics
+.. image:: img/white_layers.svg
+   :class: mom6style
 
-- Fortran 2003-like
+- Quasi-2D fluid dynamic solver
 
-- Dependencies:
+- Mostly hyperbolic, no elliptic pressure solver
 
-   - MPI
-   - netCDF
+- Lagrangian (time-dependent) vertical layers
+
+- Finite volume advection
+
+- Diverse vertical physics
+
+Strong algorithmic heterogeneity!
 
 
 MOM6-remapping
@@ -35,9 +36,11 @@ MOM6-remapping
 
 .. image:: img/layers.svg
    :width: 35%
-   :class: layerstyle
+   :class: remapstyle
 
-- Old/new superset (2N-1)
+- Vertical field interpolation
+
+- Old/new superset: :math:`2N-1`
 
 - Integrate each sublayer
 
@@ -48,6 +51,17 @@ MOM6-remapping
      h^s_j \theta^s_j - \sum_{j'=1}^m \left( 1 - \delta_{j j'} \right) h^s_{j'} \theta^s_{j'}
 
 - Sum sublayers to new layer
+
+
+Software requirements
+=====================
+
+- Fortran 2003-like
+
+- Dependencies:
+
+   - MPI
+   - netCDF
 
 
 Goals

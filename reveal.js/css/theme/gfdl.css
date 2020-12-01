@@ -318,7 +318,11 @@ body {
   text-decoration: line-through;
 }
 
-.reveal .layerstyle {
+.reveal .mom6style {
+  background-color: white;
+}
+
+.reveal .remapstyle {
   background-color: white;
   float: right;
 }

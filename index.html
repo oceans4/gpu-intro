@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>Team MOM</title>
+  <title>Ocean's 5</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -57,7 +57,7 @@
          width: 30%"
          alt="NCI">
   </div-->
-  <h1 class="title">Team MOM</h1>
+  <h1 class="title">Ocean's 5</h1>
   <p class="author" style="text-align: right;"><ul>
 <li>Alistair Adcroft</li>
 <li>Robert Hallberg</li>
@@ -96,11 +96,36 @@
   </aside>
 </section>
 
-<section id="mom6" class="title-slide slide level1">
-<h1>MOM6</h1>
+<section id="mom6-ocean-model" class="title-slide slide level1">
+<h1>MOM6 Ocean Model</h1>
+<p><img data-src="img/white_layers.svg" class="mom6style mom6style" alt="image" /></p>
 <ul>
-<li><p>Layered dynamics</p></li>
-<li><p>Fortran 2003</p></li>
+<li>Quasi-2D fluid dynamic solver</li>
+<li>Mostly hyperbolic, no elliptic pressure solver</li>
+<li>Lagrangian (time-dependent) vertical layers</li>
+<li>Finite volume advection</li>
+<li>Diverse vertical physics</li>
+</ul>
+<p>Strong algorithmic heterogeneity!</p>
+</section>
+
+<section id="mom6-remapping" class="title-slide slide level1">
+<h1>MOM6-remapping</h1>
+<p><img data-src="img/layers.svg" class="remapstyle remapstyle" style="width:35.0%" alt="image" /></p>
+<ul>
+<li><p>Vertical field interpolation</p></li>
+<li><p>Old/new superset: <span class="math inline">\(2N-1\)</span></p></li>
+<li><p>Integrate each sublayer</p></li>
+<li><p>Replace largest sublayer with</p>
+<p><span class="math display">\[h^s_j \theta^s_j - \sum_{j&#39;=1}^m \left( 1 - \delta_{j j&#39;} \right) h^s_{j&#39;} \theta^s_{j&#39;}\]</span></p></li>
+<li><p>Sum sublayers to new layer</p></li>
+</ul>
+</section>
+
+<section id="software-requirements" class="title-slide slide level1">
+<h1>Software requirements</h1>
+<ul>
+<li><p>Fortran 2003-like</p></li>
 <li><p>Dependencies:</p>
 <ul>
 <li class="fragment">MPI</li>
@@ -109,18 +134,11 @@
 </ul>
 </section>
 
-<section id="mom6-remapping" class="title-slide slide level1">
-<h1>MOM6-remapping</h1>
-<ul>
-<li>Sub</li>
-</ul>
-</section>
-
 <section id="goals" class="title-slide slide level1">
 <h1>Goals</h1>
 <ul>
 <li>Port remapping code to GPUs</li>
-<li>Demonstrate</li>
+<li>Demonstrate comparable CPU/GPU performance</li>
 <li>Integrate changes into MOM6 source
 <ul>
 <li>GPU as "coprocessor"</li>
@@ -128,7 +146,7 @@
 </ul>
 <p>Time permitting:</p>
 <ul>
-<li>Explore additional components for porting</li>
+<li>Identify additional components for porting</li>
 </ul>
 </section>
     </div>
