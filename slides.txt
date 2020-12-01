@@ -1,6 +1,11 @@
-========
-Team MOM
-========
+.. role:: strike
+   :class: strike
+
+.. ------------------
+
+=====================
+Ocean's :strike:`4` 5
+=====================
 
 :authors:
    - Alistair Adcroft
@@ -17,7 +22,7 @@ MOM6
 
 - Layered dynamics
 
-- Fortran 2003
+- Fortran 2003-like
 
 - Dependencies:
 
@@ -28,7 +33,21 @@ MOM6
 MOM6-remapping
 ==============
 
-- Sub
+.. image:: img/layers.svg
+   :width: 35%
+   :class: layerstyle
+
+- Old/new superset (2N-1)
+
+- Integrate each sublayer
+
+- Replace largest sublayer with
+
+  .. math::
+
+     h^s_j \theta^s_j - \sum_{j'=1}^m \left( 1 - \delta_{j j'} \right) h^s_{j'} \theta^s_{j'}
+
+- Sum sublayers to new layer
 
 
 Goals
@@ -36,12 +55,12 @@ Goals
 
 - Port remapping code to GPUs
 
-- Demonstrate 
+- Demonstrate comparable CPU/GPU performance
 
 - Integrate changes into MOM6 source
-  
+
   - GPU as "coprocessor"
 
 Time permitting:
 
-- Explore additional components for porting
+- Identify additional components for porting
