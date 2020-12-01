@@ -2,7 +2,10 @@
 Team MOM
 ========
 
-:date: 2020 December 1
+------------------
+Also known as...
+------------------
+
 
 Ocean's 5
 =========
@@ -20,6 +23,21 @@ Ocean's 5
 
    * - Robert Hallberg
      - Marshall Ward
+
+
+.. The Mentors
+   -----------
+
+   * Supreeth Madapur Suresh (UCAR)
+
+   * Cena Miller (UCAR)
+
+   * Raghu Raj Prasanna Kumar (Nvidia)
+
+   With help froa
+
+   * Carl Ponder (Nvidia)
+
 
 
 MOM6 Ocean Model
@@ -61,6 +79,28 @@ MOM6-remapping
      h^s_j \theta^s_j - \sum_{j'=1}^m \left( 1 - \delta_{j j'} \right) h^s_{j'} \theta^s_{j'}
 
 - Sum sublayers to new layer
+
+
+Sublayer remap
+--------------
+
+.. role:: desc
+   :class: desc
+
+1. Reconstruct
+
+   a. Edge value/slope interpolation :desc:`(stencil)`
+   b. Limiting :desc:`(local op)`
+
+2. Integrate
+
+   a. Find superset grid :desc:`(sorting)`
+   b. Integrate reconstructions over intervals :desc:`(indirect indexing)`
+   c. Correction :desc:`(conditional irregular sparse solver)`
+
+3. Average
+
+   a. Combine sums on superset grid :desc:`(irregular sparse matrix multiply)`
 
 
 Software requirements

@@ -58,7 +58,7 @@
          alt="NCI">
   </div-->
   <h1 class="title">Team MOM</h1>
-  <p class="date" style="text-align: right;">2020 December 1</p>
+  <p class="subtitle" style="text-align: left;">Also known as...</p>
   <!-- Currently cannot add notes to a title slide, so have to do manually-->
   <aside class="notes">
     <p>So I think everyone here would agree that the MOM6 community is growing,
@@ -124,6 +124,7 @@
 <p>Strong algorithmic heterogeneity!</p>
 </section>
 
+<section>
 <section id="mom6-remapping" class="title-slide slide level1">
 <h1>MOM6-remapping</h1>
 <p><img data-src="img/layers.svg" class="remapstyle remapstyle" style="width:35.0%" alt="image" /></p>
@@ -136,7 +137,26 @@
 <li><p>Sum sublayers to new layer</p></li>
 </ul>
 </section>
-
+<section id="sublayer-remap" class="slide level2">
+<h2>Sublayer remap</h2>
+<ol type="1">
+<li>Reconstruct
+<ol type="a">
+<li>Edge value/slope interpolation <span class="desc">(stencil)</span></li>
+<li>Limiting <span class="desc">(local op)</span></li>
+</ol></li>
+<li>Integrate
+<ol type="a">
+<li>Find superset grid <span class="desc">(sorting)</span></li>
+<li>Integrate reconstructions over intervals <span class="desc">(indirect indexing)</span></li>
+<li>Correction <span class="desc">(conditional irregular sparse solver)</span></li>
+</ol></li>
+<li>Average
+<ol type="a">
+<li>Combine sums on superset grid <span class="desc">(irregular sparse matrix multiply)</span></li>
+</ol></li>
+</ol>
+</section></section>
 <section id="software-requirements" class="title-slide slide level1">
 <h1>Software requirements</h1>
 <ul>
