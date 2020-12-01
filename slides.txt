@@ -24,6 +24,8 @@ Ocean's 5
    * - Robert Hallberg
      - Marshall Ward
 
+**Mentors**: Supreeth Suresh, Cena Miller
+
 
 .. The Mentors
    -----------
