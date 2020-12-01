@@ -1,15 +1,25 @@
-=========
+========
+Team MOM
+========
+
+:date: 2020 December 1
+
 Ocean's 5
 =========
 
-:authors:
-   - Alistair Adcroft
-   - Robert Hallberg
-   - Matthew Harrison
-   - Marshall Ward
-   - Niki Zadeh
+.. image:: img/oceans5_gfdl.png
+   :width: 85%
 
-:date: 2020 December 1
+.. list-table::
+
+   * - Alistair Adcroft
+     - Matthew Harrison
+     - Niki Zadeh
+
+.. list-table::
+
+   * - Robert Hallberg
+     - Marshall Ward
 
 
 MOM6 Ocean Model
@@ -20,13 +30,13 @@ MOM6 Ocean Model
 
 - Quasi-2D fluid dynamic solver
 
-- Mostly hyperbolic, no elliptic pressure solver
-
-- Lagrangian (time-dependent) vertical layers
+- Mostly hyperbolic PDE (no elliptic step)
 
 - Finite volume advection
 
 - Diverse vertical physics
+
+- **Lagrangian (time-dependent) vertical layers**
 
 Strong algorithmic heterogeneity!
 
@@ -56,12 +66,19 @@ MOM6-remapping
 Software requirements
 =====================
 
-- Fortran 2003-like
+- Fortran 2003 (mostly)
 
-- Dependencies:
+- MPI paralleization
 
-   - MPI
-   - netCDF
+- netCDF I/O
+
+- Floating point reproducibility:
+
+  .. math::
+
+      a + (b + c) ≠ (a + b) + c
+
+Targeting OpenACC parallelization
 
 
 Goals
@@ -69,11 +86,11 @@ Goals
 
 - Port remapping code to GPUs
 
-- Demonstrate comparable CPU/GPU performance
+- Show comparable CPU/GPU performance
 
 - Integrate changes into MOM6 source
 
-  - GPU as "coprocessor"
+- GPU as "coprocessor"
 
 Time permitting:
 

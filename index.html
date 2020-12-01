@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>Ocean's 5</title>
+  <title>Team MOM</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -57,14 +57,7 @@
          width: 30%"
          alt="NCI">
   </div-->
-  <h1 class="title">Ocean's 5</h1>
-  <p class="author" style="text-align: right;"><ul>
-<li>Alistair Adcroft</li>
-<li>Robert Hallberg</li>
-<li>Matthew Harrison</li>
-<li>Marshall Ward</li>
-<li>Niki Zadeh</li>
-</ul></p>
+  <h1 class="title">Team MOM</h1>
   <p class="date" style="text-align: right;">2020 December 1</p>
   <!-- Currently cannot add notes to a title slide, so have to do manually-->
   <aside class="notes">
@@ -96,15 +89,37 @@
   </aside>
 </section>
 
+<section id="oceans-5" class="title-slide slide level1">
+<h1>Ocean's 5</h1>
+<p><img data-src="img/oceans5_gfdl.png" style="width:85.0%" alt="image" /></p>
+<table>
+<tbody>
+<tr class="odd">
+<td>Alistair Adcroft</td>
+<td>Matthew Harrison</td>
+<td>Niki Zadeh</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td>Robert Hallberg</td>
+<td>Marshall Ward</td>
+</tr>
+</tbody>
+</table>
+</section>
+
 <section id="mom6-ocean-model" class="title-slide slide level1">
 <h1>MOM6 Ocean Model</h1>
 <p><img data-src="img/white_layers.svg" class="mom6style mom6style" alt="image" /></p>
 <ul>
 <li>Quasi-2D fluid dynamic solver</li>
-<li>Mostly hyperbolic, no elliptic pressure solver</li>
-<li>Lagrangian (time-dependent) vertical layers</li>
+<li>Mostly hyperbolic PDE (no elliptic step)</li>
 <li>Finite volume advection</li>
 <li>Diverse vertical physics</li>
+<li><strong>Lagrangian (time-dependent) vertical layers</strong></li>
 </ul>
 <p>Strong algorithmic heterogeneity!</p>
 </section>
@@ -125,24 +140,22 @@
 <section id="software-requirements" class="title-slide slide level1">
 <h1>Software requirements</h1>
 <ul>
-<li><p>Fortran 2003-like</p></li>
-<li><p>Dependencies:</p>
-<ul>
-<li class="fragment">MPI</li>
-<li class="fragment">netCDF</li>
-</ul></li>
+<li><p>Fortran 2003 (mostly)</p></li>
+<li><p>MPI paralleization</p></li>
+<li><p>netCDF I/O</p></li>
+<li><p>Floating point reproducibility:</p>
+<p><span class="math display">\[a + (b + c) ≠ (a + b) + c\]</span></p></li>
 </ul>
+<p>Targeting OpenACC parallelization</p>
 </section>
 
 <section id="goals" class="title-slide slide level1">
 <h1>Goals</h1>
 <ul>
 <li>Port remapping code to GPUs</li>
-<li>Demonstrate comparable CPU/GPU performance</li>
-<li>Integrate changes into MOM6 source
-<ul>
+<li>Show comparable CPU/GPU performance</li>
+<li>Integrate changes into MOM6 source</li>
 <li>GPU as "coprocessor"</li>
-</ul></li>
 </ul>
 <p>Time permitting:</p>
 <ul>
